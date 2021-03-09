@@ -1,17 +1,33 @@
-<div class="main-navigation">
-  <div class="drop-down-icon">
-    ^
-  </div>
-  <div class="image-container">
-    <img [src]="navigation.image" alt="icon">
-  </div>
-  <div class="navigation-title">
-    {{navigation.title}}
-  </div>
+<div class="navigations selected" [ngClass]="{'folder': isParent, 'selected': (curentUrl$ | async) === fullUrl}">
+  <div class="main-navigation">
+    <div class="color-marker" [ngStyle]="{'background-color': color ? color : navigation.color }">
+    </div>
+    <a (click)="isParent ? toggleDropDownList(): goToUrl()">
+      <div class="content">
+        <div class="info">
+          <div class="drop-down-icon" [ngClass]="{'closed': !isOpen}">
+            <img *ngIf="isParent" src="/assets/icon/arrows/DropDownArrow.svg" alt="">
+          </div>
+          <div class="image-container">
+            <img [src]="navigation.image" alt="icon">
+          </div>
+          <div class="navigation-title">
+            {{navigation.title}}
+          </div>
+        </div>
 
-  <ng-container *ngIf="!!navigation.length">
-    <div class="sub-navigation" *ngFor="let subNavigation of navigation.children">
-      <app-navigation-chain [navigation]="subNavigation"></app-navigation-chain>
+        <div class="selected-arrow-container">
+          <img src="/assets/icon/arrows/SelectedArrow.svg" alt="">
+        </div>
+      </div>
+    </a>
+  </div>
+  <ng-container *ngIf="isParent ">
+    <div class=" sub-navigation" [@slideInOut]="isOpen? 'in': 'out' "
+      *ngFor=" let subNavigation of navigation.children">
+      <app-navigation-chain class="sub" [curentUrl$]="curentUrl$" [parentPath]="navigation.path"
+        [color]="navigation.color" [navigation]="subNavigation">
+      </app-navigation-chain>
     </div>
   </ng-container>
 

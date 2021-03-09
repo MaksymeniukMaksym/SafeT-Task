@@ -1,0 +1,117 @@
+:host(.sub) {
+  .navigations .main-navigation a {
+    margin-left: 20px;
+    width: 88%;
+  }
+}
+
+.navigations {
+  .main-navigation {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+
+    .color-marker {
+      height: 38px;
+      width: 10px;
+      border-radius: 0 10px 10px 0;
+      opacity: 0;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+      .content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .info {
+          display: flex;
+          align-items: center;
+          .drop-down-icon {
+            min-width: 8px;
+            margin: 0 5px;
+            // animation: spin 0.3s ease-in-out ;
+
+            transform: rotate(0deg);
+
+            &.closed {
+              animation: spin 0.3s linear;
+
+              transform: rotate(-90deg);
+            }
+
+            @keyframes spin {
+              0% {
+                transform: rotate(0deg);
+              }
+              100% {
+                transform: rotate(-90deg);
+              }
+            }
+          }
+          .image-container {
+            display: flex;
+            justify-content: center;
+            border-radius: 50%;
+            img {
+              border-radius: inherit;
+            }
+          }
+          .navigation-title {
+            margin: 0 6px;
+          }
+        }
+      }
+    }
+  }
+  .sub-navigation {
+    max-height: 500px;
+  }
+}
+
+.navigations:not(.folder) {
+  .main-navigation:hover {
+    a {
+      width: 96%;
+
+      .content {
+        width: 100%;
+        height: 38px;
+        background-color: rgb(206, 206, 206);
+        box-shadow: 0px 2px 5px rgba(26, 36, 45, 0.1);
+        border-radius: 10px;
+        margin-right: -10px;
+        padding-right: 10px;
+
+        .navigation-title {
+          color: #ffffff;
+        }
+      }
+    }
+  }
+}
+
+.selected:not(.folder) {
+  .main-navigation {
+    .color-marker {
+      opacity: 1;
+    }
+    a {
+      width: 96%;
+
+      .content {
+        width: 100%;
+        height: 38px;
+        background-color: #1a242d;
+        box-shadow: 0px 2px 5px rgba(26, 36, 45, 0.1);
+        border-radius: 10px;
+        margin-right: -10px;
+        padding-right: 10px;
+
+        .navigation-title {
+          color: #ffffff;
+        }
+      }
+    }
+  }
+}

@@ -1,17 +1,11 @@
 <div class="wrapper">
-  <div class="logo"> SAFE-T</div>
+  <div class="logo">
+    <img src="/assets/icon/logo/Logo.svg" alt="">
+    <hr>
+  </div>
   <div class="navigations">
-    1
-    <ng-container *ngIf="test">
-      <div class="test" *ngFor="let item of test">
-        {{item}}
-      </div>
-    </ng-container>
-
-
     <div class="navigation" *ngFor="let navigation of navigations">
-      1
-      <app-navigation-chain [navigation]="navigation"></app-navigation-chain>
+      <app-navigation-chain [curentUrl$]="curentUrl$" [navigation]="navigation"></app-navigation-chain>
     </div>
   </div>
 </div>

@@ -10,12 +10,15 @@ const routes: Routes = [
         path: 'infrastructure',
         loadChildren: () => import('./modules/infrastructure/infrastructure.module').then((m) => m.InfrastructureModule),
       },
-
+      {
+        path: '**',
+        loadChildren: () => import('./modules/not-found/not-found.module').then((m) => m.NotFoundModule),
+      },
     ],
   },
 ];
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

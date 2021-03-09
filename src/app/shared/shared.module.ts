@@ -1,4 +1,7 @@
+import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 
 import { NavbarComponent } from './navbar/navbar.component';
 import { NavigationChainComponent } from './navbar/navigation-chain/navigation-chain.component';
@@ -9,10 +12,14 @@ import { NavigationChainComponent } from './navbar/navigation-chain/navigation-c
     NavigationChainComponent
   ],
   providers: [],
-  imports: [],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    RouterModule,
+  ],
   exports: [
     NavbarComponent,
-    NavigationChainComponent
+    NavigationChainComponent,
   ],
 })
 export class SharedModule { }

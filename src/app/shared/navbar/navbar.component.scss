@@ -1,0 +1,23 @@
+.wrapper {
+  width: 250px;
+  background-color: white;
+  height: 100%;
+  .logo {
+    height: 85px;
+    display: flex;
+    flex-direction: column;
+    hr {
+      width: 86%;
+      border: none;
+      color: #cbd4db;
+      background-color: #cbd4db;
+      height: 1px;
+      border-radius: 94px;
+    }
+    img {
+      margin: auto 27px;
+      width: 92px;
+      height: 29px;
+    }
+  }
+}
