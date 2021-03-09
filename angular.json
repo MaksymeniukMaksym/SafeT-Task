@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "safeT-task"
+    }
+  },
+  "defaultProject": "safeT-task",
+  "cli": {
+    "analytics": "2269b97c-ca1b-40d1-8f68-96527b6f92e2"
+  }
 }

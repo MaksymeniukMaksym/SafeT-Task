@@ -1,0 +1,19 @@
+<div class="main-navigation">
+  <div class="drop-down-icon">
+    ^
+  </div>
+  <div class="image-container">
+    <img [src]="navigation.image" alt="icon">
+  </div>
+  <div class="navigation-title">
+    {{navigation.title}}
+  </div>
+
+  <ng-container *ngIf="!!navigation.length">
+    <div class="sub-navigation" *ngFor="let subNavigation of navigation.children">
+      <app-navigation-chain [navigation]="subNavigation"></app-navigation-chain>
+    </div>
+  </ng-container>
+
+
+</div>
