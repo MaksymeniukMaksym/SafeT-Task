@@ -1,7 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 @import "./assets/fonts/OpenSans/stylesheet.css";
 
+@import "./assets/scss/primary-button.scss";
+
 body {
   background-color: #f4f6f6;
   margin: 0;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

@@ -26,8 +26,6 @@ export class NavbarDirective {
   public onClick(targetElement) {
     const clickedInside = this._elementRef.nativeElement.contains(targetElement);
     if (!clickedInside && this.isTablet) {
-      console.log('outside')
-
       this.navbarService.toggleOpenState(false);
       this.navbarService.toggleBlurState(false);
 

@@ -8,9 +8,12 @@
     display: flex;
     justify-content: space-between;
     padding-top: 25px;
+    align-items: baseline;
+
     .menu {
       display: flex;
       justify-content: end;
+      margin: 5px 0;
     }
     .info {
       .text {
@@ -37,5 +40,10 @@
   }
   hr {
     margin: 10px 0;
+  }
+  .content {
+    mat-table {
+      width: 100%;
+    }
   }
 }

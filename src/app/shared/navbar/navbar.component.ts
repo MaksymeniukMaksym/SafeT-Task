@@ -152,7 +152,6 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit() {
     (this.router.events as any).pipe(filter(e => e instanceof NavigationEnd)).subscribe(e => {
-      console.log(e.url)
       this._curentUrl.next(e.url);
     })
     this.breakPointService.isTablet.subscribe(data => {
