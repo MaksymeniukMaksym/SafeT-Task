@@ -1,8 +1,8 @@
 <div class="wrapper" appNavbar [ngClass]="{'closed':!isMenuOpen }">
   <div class="logo">
-    <img *ngIf="isMenuOpen" src="/assets/icon/logo/Logo.svg" alt="">
+    <img *ngIf="isMenuOpen" src="./assets/icon/logo/Logo.svg" alt="">
     <img *ngIf="!isMenuOpen" click-stop-propagation (click)="toggleMenu(true)" class='logo-button'
-      src="/assets/icon/logo/LogoButton.svg" alt="">
+      src="./assets/icon/logo/LogoButton.svg" alt="">
   </div>
   <hr>
   <div class="navigations">

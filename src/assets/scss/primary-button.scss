@@ -32,7 +32,7 @@ button.safe-t-primary {
   &.add {
     border: 1px solid #ffcb0d;
     &::before {
-      content: url("/assets/icon/buttons/Add.svg");
+      content: url("~/assets/icon/buttons/Add.svg");
       background-color: #ffcb0d;
     }
   }
@@ -40,7 +40,7 @@ button.safe-t-primary {
     border: 1px solid #95a0ad;
     color: #95a0ad;
     &::before {
-      content: url("/assets/icon/buttons/Delete.svg");
+      content: url("~/assets/icon/buttons/Delete.svg");
       border-right: 1px solid #95a0ad;
       height: 25px;
       width: 24px;

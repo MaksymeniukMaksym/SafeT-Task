@@ -19,6 +19,7 @@
           "options": {
             "outputPath": "dist/safeT-task",
             "index": "src/index.html",
+            "deployUrl": "https://maksymeniukmaksym.github.io/SafeT-Task/",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
