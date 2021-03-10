@@ -1,0 +1,51 @@
+button.safe-t-primary {
+  height: 28px;
+  width: 90px;
+  box-sizing: border-box;
+  border-radius: 2px;
+  background: none;
+  color: inherit;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  position: relative;
+  margin: 0 5px;
+
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 16px;
+  text-indent: 20px;
+
+  &::before {
+    position: absolute;
+    height: 27px;
+    width: 24px;
+    top: 0;
+    left: 0;
+    text-indent: 0px;
+    line-height: 25px;
+  }
+
+  &.add {
+    border: 1px solid #ffcb0d;
+    &::before {
+      content: url("/assets/icon/buttons/Add.svg");
+      background-color: #ffcb0d;
+    }
+  }
+  &.remove {
+    border: 1px solid #95a0ad;
+    color: #95a0ad;
+    &::before {
+      content: url("/assets/icon/buttons/Delete.svg");
+      border-right: 1px solid #95a0ad;
+      height: 25px;
+      width: 24px;
+      text-indent: 0px;
+      line-height: 32px;
+    }
+  }
+}
