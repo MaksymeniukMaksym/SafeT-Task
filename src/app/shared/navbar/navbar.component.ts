@@ -1,3 +1,5 @@
+import { NavbarService } from './../../core/services/navbar.service';
+import { BreakpointService } from './../../core/services/breakpoint.service';
 import { Component, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { BehaviorSubject, Observable } from 'rxjs';
@@ -140,8 +142,12 @@ export class NavbarComponent implements OnInit {
 
   private _curentUrl: BehaviorSubject<string> = new BehaviorSubject<string>('');
   public curentUrl$: Observable<string> = this._curentUrl;
-
-  constructor(private router: Router) {
+  public isMenuOpen = false;
+  constructor(
+    private router: Router,
+    private breakPointService: BreakpointService,
+    private navbarService: NavbarService
+  ) {
   }
 
   ngOnInit() {
@@ -149,6 +155,30 @@ export class NavbarComponent implements OnInit {
       console.log(e.url)
       this._curentUrl.next(e.url);
     })
+    this.breakPointService.isTablet.subscribe(data => {
+      if (data) {
+        this.mobileNavbar();
+      } else {
+        this.navbarService.toggleOpenState(true);
+        this.navbarService.toggleBlurState(false);
+
+      }
+    })
+    this.navbarService.isOpen$.subscribe(data => {
+      this.isMenuOpen = data;
+    })
+  }
+
+
+
+  public toggleMenu(data: boolean) {
+    this.navbarService.toggleOpenState(data);
+    this.navbarService.toggleBlurState(data);
+  }
+
+  private mobileNavbar() {
+    this.toggleMenu(false);
+
   }
 
 }

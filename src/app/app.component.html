@@ -1,7 +1,13 @@
-<app-navbar></app-navbar>
-<div class="wrapper">
-  <div class="top">
-    admin
+<div class="wrapper" [ngClass]="{'blur': (isBlur$ | async)}">
+  <app-navbar></app-navbar>
+  <div class="main">
+    <div class="top">
+      <span class='menu'>
+        admin
+      </span>
+    </div>
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
   </div>
-  <router-outlet></router-outlet>
 </div>

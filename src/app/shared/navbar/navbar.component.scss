@@ -6,18 +6,37 @@
     height: 85px;
     display: flex;
     flex-direction: column;
-    hr {
-      width: 86%;
-      border: none;
-      color: #cbd4db;
-      background-color: #cbd4db;
-      height: 1px;
-      border-radius: 94px;
+    .logo-button {
+      cursor: pointer;
+      width: 37px;
+      height: 37px;
+      margin: auto;
     }
+
     img {
       margin: auto 27px;
       width: 92px;
       height: 29px;
     }
+  }
+  hr {
+    width: 86%;
+    border: none;
+    color: #cbd4db;
+    background-color: #cbd4db;
+    height: 1px;
+    border-radius: 94px;
+    margin: 0 auto;
+  }
+
+  .navigations {
+    margin-top: 20px;
+  }
+}
+
+.closed {
+  width: 85px;
+  hr {
+    width: 50%;
   }
 }

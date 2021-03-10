@@ -1,11 +1,14 @@
-<div class="wrapper">
+<div class="wrapper" appNavbar [ngClass]="{'closed':!isMenuOpen }">
   <div class="logo">
-    <img src="/assets/icon/logo/Logo.svg" alt="">
-    <hr>
+    <img *ngIf="isMenuOpen" src="/assets/icon/logo/Logo.svg" alt="">
+    <img *ngIf="!isMenuOpen" click-stop-propagation (click)="toggleMenu(true)" class='logo-button'
+      src="/assets/icon/logo/LogoButton.svg" alt="">
   </div>
+  <hr>
   <div class="navigations">
     <div class="navigation" *ngFor="let navigation of navigations">
-      <app-navigation-chain [curentUrl$]="curentUrl$" [navigation]="navigation"></app-navigation-chain>
+      <app-navigation-chain [isMenuOpen]="isMenuOpen" [curentUrl$]="curentUrl$" [navigation]="navigation">
+      </app-navigation-chain>
     </div>
   </div>
 </div>

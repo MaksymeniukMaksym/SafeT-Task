@@ -1,4 +1,5 @@
-<div class="navigations selected" [ngClass]="{'folder': isParent, 'selected': (curentUrl$ | async) === fullUrl}">
+<div class="navigations selected"
+  [ngClass]="{'folder': isParent, 'selected': (curentUrl$ | async) === fullUrl, 'closed': !isMenuOpen}">
   <div class="main-navigation">
     <div class="color-marker" [ngStyle]="{'background-color': color ? color : navigation.color }">
     </div>
@@ -9,9 +10,9 @@
             <img *ngIf="isParent" src="/assets/icon/arrows/DropDownArrow.svg" alt="">
           </div>
           <div class="image-container">
-            <img [src]="navigation.image" alt="icon">
+            <svg-icon [applyCss]="true" class="icon" [src]="navigation.image"></svg-icon>
           </div>
-          <div class="navigation-title">
+          <div class="navigation-title" *ngIf="isMenuOpen">
             {{navigation.title}}
           </div>
         </div>
@@ -25,8 +26,8 @@
   <ng-container *ngIf="isParent ">
     <div class=" sub-navigation" [@slideInOut]="isOpen? 'in': 'out' "
       *ngFor=" let subNavigation of navigation.children">
-      <app-navigation-chain class="sub" [curentUrl$]="curentUrl$" [parentPath]="navigation.path"
-        [color]="navigation.color" [navigation]="subNavigation">
+      <app-navigation-chain [isMenuOpen]="isMenuOpen" class="sub" [curentUrl$]="curentUrl$"
+        [parentPath]="navigation.path" [color]="navigation.color" [navigation]="subNavigation">
       </app-navigation-chain>
     </div>
   </ng-container>

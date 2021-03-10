@@ -16,10 +16,13 @@ export class NavigationChainComponent implements OnInit {
   @Input() color: string;
   @Input() parentPath: string = '';
   @Input() curentUrl$: Observable<string>;
+  @Input() isMenuOpen: boolean = false;
+
 
   public fullUrl = '';
-  public isOpen = true;
+  public isOpen = false;
   public isParent = false;
+
   constructor(private router: Router) { }
 
   ngOnInit() {
@@ -29,6 +32,14 @@ export class NavigationChainComponent implements OnInit {
       this.fullUrl = '/' + this.navigation.path;
     }
     this.isParent = !!this.navigation.children.length;
+
+    this.curentUrl$.subscribe((url) => {
+      if (url.includes(this.fullUrl)) {
+        this.isOpen = true;
+      }
+    })
+
+
 
   }
 
